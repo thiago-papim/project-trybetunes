@@ -1,0 +1,21 @@
+header {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+}
+
+.usuario {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.usuario img {
+  height: 50px;
+  width: 100px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+}
