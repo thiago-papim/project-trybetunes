@@ -4,7 +4,7 @@ class Search extends React.Component {
   render() {
     return (
       <div data-testid="page-search">
-        <p>oi</p>
+        <p>Search</p>
       </div>
     );
   }
