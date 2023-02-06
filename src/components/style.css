@@ -20,18 +20,17 @@ header {
   justify-content: space-around;
 }
 
-.links:hover > :not(:hover) {
-  opacity: .4;
+.links:hover > :not(:hover ) {
+  opacity: 0.4;
   transform: scale(0.9);
 }
 
 .inputButton {
-  cursor: pointer;
   background-color: rgb(49, 49, 49);
   border: 1px white solid;
-  border-radius: 0px;
   color: white;
+  cursor: pointer;
   height: 50px;
-  transition: .55s;
+  transition: 0.55s;
   width: 100%;
 }

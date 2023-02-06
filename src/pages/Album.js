@@ -14,6 +14,7 @@ class Album extends React.Component {
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const arr = await getMusics(id);
+    console.log(arr);
     const filterMusic = arr.filter((element) => element.wrapperType === 'track');
     const musics = filterMusic.map((musica) => (
       <div key={ musica.trackId }>
