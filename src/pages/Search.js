@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import searchAlbumApi from '../services/searchAlbumsAPI';
+import '../components/style.css';
 
 class Search extends React.Component {
   state = {
@@ -37,24 +38,27 @@ class Search extends React.Component {
     const { history } = this.props;
     return musics
       .map((cd) => (
-        <div key={ cd.collectionName }>
+        <div key={ cd.collectionName } className="divSearch">
           <p>
             {cd.collectionName}
           </p>
-          <button
-            onClick={ () => history.push(`/album/${cd.collectionId}`) }
-            data-testid={ `link-to-album-${cd.collectionId}` }
-          >
-            Detalhes
+          <div className="divDetalhes">
+            <img src={ cd.artworkUrl100 } alt={ cd.collectionName } />
+            <button
+              onClick={ () => history.push(`/album/${cd.collectionId}`) }
+              data-testid={ `link-to-album-${cd.collectionId}` }
+            >
+              Detalhes
 
-          </button>
+            </button>
+          </div>
         </div>));
   };
 
   render() {
     const { search, btnPesquisa, musics, resultado, validar } = this.state;
     const result = musics ? (
-      <div>
+      <div className="divPaiSearch">
         <h3>{`Resultado de álbuns de: ${resultado}`}</h3>
         {this.arrMusic()}
       </div>) : <p>Nenhum álbum foi encontrado</p>;

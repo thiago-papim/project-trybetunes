@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 class MusicCard extends React.Component {
   render() {
     const { url, name } = this.props;
-    // const id = trackId.toString();
     return (
       <div>
-        <p>{ name }</p>
+        <h5>{ name }</h5>
         <audio data-testid="audio-component" src={ url } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento

@@ -34,3 +34,38 @@ header {
   transition: 0.55s;
   width: 100%;
 }
+
+.musicas {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cardMusic {
+  border: 2px black solid;
+  margin: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.divSearch {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.divDetalhes {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+}
+
+.divDetalhes button {
+  background-color: rgb(49, 49, 49);
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  width: 100px;
+}
