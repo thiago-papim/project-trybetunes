@@ -16,7 +16,7 @@ class MusicCard extends React.Component {
           <code>audio</code>
           .
         </audio>
-        <form>
+        {/* <form>
           <label htmlFor="favorita">
             Favorita
             <input
@@ -25,7 +25,7 @@ class MusicCard extends React.Component {
               // data-testid={ `checkbox-music-${trackId}` }
             />
           </label>
-        </form>
+        </form> */}
       </div>
     );
   }
