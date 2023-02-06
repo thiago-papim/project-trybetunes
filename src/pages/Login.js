@@ -10,6 +10,10 @@ class Login extends React.Component {
     load: false,
   };
 
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   handleChange = ({ target }) => {
     const { value, name } = target;
     this.setState({ [name]: value }, this.validation(value));
@@ -25,6 +29,7 @@ class Login extends React.Component {
   render() {
     const { name, btnDisabled, load } = this.state;
     const { history } = this.props;
+    console.log(history);
     return (
       <div data-testid="page-login">
         <form>

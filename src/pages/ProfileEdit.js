@@ -5,7 +5,7 @@ class ProfileEdit extends React.Component {
   render() {
     return (
       <div data-testid="page-profile-edit">
-        <Header />
+        <Header props={ this.props } />
         <p>oi</p>
       </div>
     );

@@ -5,7 +5,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div data-testid="page-profile">
-        <Header />
+        <Header props={ this.props } />
         <p>oi</p>
       </div>
     );

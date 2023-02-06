@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import searchAlbumApi from '../services/searchAlbumsAPI';
 
@@ -34,19 +34,20 @@ class Search extends React.Component {
 
   arrMusic = () => {
     const { musics } = this.state;
+    const { history } = this.props;
     return musics
       .map((cd) => (
         <div key={ cd.collectionName }>
           <p>
             {cd.collectionName}
           </p>
-          <Link
-            to={ `/album/${cd.collectionId}` }
+          <button
+            onClick={ () => history.push(`/album/${cd.collectionId}`) }
             data-testid={ `link-to-album-${cd.collectionId}` }
           >
             Detalhes
 
-          </Link>
+          </button>
         </div>));
   };
 
@@ -59,7 +60,7 @@ class Search extends React.Component {
       </div>) : <p>Nenhum álbum foi encontrado</p>;
     return (
       <div data-testid="page-search">
-        <Header />
+        <Header props={ this.props } />
         <form>
           <label htmlFor="search">
             <input
@@ -87,5 +88,11 @@ class Search extends React.Component {
     );
   }
 }
+
+Search.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Search;

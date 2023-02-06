@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import './style.css';
@@ -22,6 +22,8 @@ class Header extends React.Component {
 
   render() {
     const { name, load } = this.state;
+    const { props: { history } } = this.props;
+
     const nameLogin = <p data-testid="header-user-name">{ `Usuário: ${name}` }</p>;
     return (
       <header data-testid="header-component">
@@ -30,28 +32,40 @@ class Header extends React.Component {
           { load ? <Loading /> : nameLogin }
         </div>
         <div className="links">
-          <Link
-            to="/search"
+          <button
+            id="teste"
             data-testid="link-to-search"
+            value="Pesquisa"
+            onClick={ () => history.push('/search') }
+            className="inputButton"
           >
             Pesquisa
-          </Link>
-          <Link
-            to="/favorites"
+
+          </button>
+          <input
+            type="button"
             data-testid="link-to-favorites"
-          >
-            Musicas Favoritas
-          </Link>
-          <Link
-            to="/profile"
+            value="Musicas Favoritas"
+            onClick={ () => history.push('/favorites') }
+            className="inputButton"
+          />
+          <input
+            type="button"
             data-testid="link-to-profile"
-          >
-            Perfil
-          </Link>
+            value="Perfil"
+            onClick={ () => history.push('/profile') }
+            className="inputButton"
+          />
         </div>
       </header>
     );
   }
 }
+
+Header.propTypes = {
+  props: PropTypes.shape({
+    history: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Header;

@@ -1,5 +1,5 @@
 header {
-  background-color: aqua;
+  background-color: rgb(138, 138, 138);
   display: flex;
   flex-direction: column;
 }
@@ -18,4 +18,20 @@ header {
 .links {
   display: flex;
   justify-content: space-around;
+ }
+
+.links:hover > :not(:hover) {
+  opacity: .4;
+  transform: scale(0.9);
+}
+
+.inputButton {
+  transition: .55s;
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  border-radius: 0px;
+  border: 1px white solid;
+  background-color: rgb(49, 49, 49);
+  color: white;
 }
