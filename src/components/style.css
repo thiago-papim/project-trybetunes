@@ -20,7 +20,7 @@ header {
   justify-content: space-around;
 }
 
-.links:hover > :not(:hover ) {
+.links:hover > :not( :hover ) {
   opacity: 0.4;
   transform: scale(0.9);
 }
