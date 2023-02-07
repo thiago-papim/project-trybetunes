@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import './card.css';
 
 class MusicCard extends React.Component {
   state = {
@@ -68,7 +69,9 @@ MusicCard.propTypes = {
   name: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
   music: PropTypes.func.isRequired,
-  favoritas: PropTypes.arrayOf.isRequired,
+  favoritas: PropTypes.shape({
+    some: PropTypes.bool.isRequired,
+  }).isRequired,
 };
 
 export default MusicCard;

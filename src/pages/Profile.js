@@ -8,24 +8,32 @@ import '../components/styleProfile.css';
 
 class Profile extends React.Component {
   state = {
-    user: '',
+    name: '',
+    email: '',
+    image: '',
+    description: '',
     load: true,
   };
 
   async componentDidMount() {
     const usuario = await getUser();
-    this.setState({ user: usuario, load: false });
+    const { name, email, image, description } = usuario;
+    this.setState({
+      name,
+      email,
+      image,
+      description,
+      load: false,
+    });
   }
 
   render() {
     const { history } = this.props;
-    const { user, load } = this.state;
-    const { name, email, image, description } = user;
-    console.log(user);
+    const { name, email, image, description, load } = this.state;
     const perfil = (
       <div className="divProfile">
         <img
-          src={ image }
+          src={ image || 'https://api.ejcomp.com.br/members/1586969992913-perfilsemfoto.jpg' }
           alt={ `Foto de ${name}` }
           data-testid="profile-image"
         />
