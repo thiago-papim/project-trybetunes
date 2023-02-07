@@ -14,7 +14,7 @@
 }
 
 .divProfile p {
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
 
 .description {
@@ -22,8 +22,8 @@
   background-color: white;
   display: flex;
   justify-content: center;
-  min-height: 100px;
   max-height: 500px;
+  min-height: 100px;
   width: 400px;
 }
 
