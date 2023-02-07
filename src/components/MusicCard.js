@@ -1,28 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
   state = {
     load: false,
+    check: false,
   };
+
+  componentDidMount() {
+    const { favoritas, music } = this.props;
+    const { trackId } = music;
+    const verifica = favoritas.some((id) => id === trackId);
+    this.setState({ check: verifica });
+  }
 
   addFavorite = async (event, music) => {
     const { target: { checked } } = event;
+    const { trackId } = music;
     this.setState({ load: true });
-    if (checked === true) {
+    const favorites = await getFavoriteSongs();
+    const verifica = favorites.some((element) => element.trackId === trackId);
+    if (checked === true && verifica === false) {
       await addSong(music);
     }
     if (checked === false) {
       await removeSong(music);
     }
-    this.setState({ load: false });
+    this.setState({ load: false, check: checked });
   };
 
   render() {
     const { url, name, trackId, music } = this.props;
-    const { load } = this.state;
+    const { load, check } = this.state;
     return (
       <div>
         { load ? <Loading /> : ''}
@@ -43,6 +54,7 @@ class MusicCard extends React.Component {
               type="checkbox"
               data-testid={ `checkbox-music-${trackId}` }
               onChange={ (event) => this.addFavorite(event, music) }
+              checked={ check }
             />
           </label>
         </form>
@@ -54,8 +66,9 @@ class MusicCard extends React.Component {
 MusicCard.propTypes = {
   url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  trackId: PropTypes.string.isRequired,
+  trackId: PropTypes.number.isRequired,
   music: PropTypes.func.isRequired,
+  favoritas: PropTypes.arrayOf.isRequired,
 };
 
 export default MusicCard;

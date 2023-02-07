@@ -16,8 +16,9 @@ class Album extends React.Component {
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const arr = await getMusics(id);
-    const favorites = await getFavoriteSongs();
-    console.log(favorites);
+    const musicsfavorites = await getFavoriteSongs();
+    const favorite = musicsfavorites.map((element) => element.trackId);
+    console.log(favorite);
     const filterMusic = arr.filter((element) => element.kind === 'song');
     const musics = filterMusic.map((musica) => (
       <div key={ musica.trackId } className="cardMusic">
@@ -26,6 +27,7 @@ class Album extends React.Component {
           name={ musica.trackName }
           trackId={ musica.trackId }
           music={ musica }
+          favoritas={ favorite }
         />
       </div>
     ));
