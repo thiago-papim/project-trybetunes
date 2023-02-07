@@ -13,7 +13,7 @@ main {
 }
 
 .form-profile {
-  background-color: #fff;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 5px 5px 40px black;
   box-sizing: border-box;
@@ -24,7 +24,7 @@ main {
 }
 
 .form-profile input {
-  background-color: #fff;
+  background-color: white;
   border-radius: 10px;
   margin-bottom: 5px;
   margin-top: 5px;
@@ -54,16 +54,11 @@ main {
   width: 100%;
 }
 
-.btn-input:enabled:hover {
-  background-color: #04AA6D;
-}
-
 .btn-input:disabled {
   background-color: #9c9c9c;
   color: rgb(121, 121, 121);
 }
 
-.inputs {
-  display: flex;
-  flex-direction: column;
+.btn-input:enabled:hover {
+  background-color: #04aa6d;
 }
