@@ -20,11 +20,12 @@ class Profile extends React.Component {
     const { history } = this.props;
     const { user, load } = this.state;
     const { name, email, image, description } = user;
+    console.log(user);
     const perfil = (
       <>
-        <p>{ `Nome: ${name}`}</p>
-        <p>{ `Email: ${email}`}</p>
-        <p>{ `Descrição: ${description}`}</p>
+        <p>{name}</p>
+        <p>{email}</p>
+        <p>{description}</p>
         <img
           src={ image }
           alt={ `Foto de ${name}` }
@@ -37,7 +38,6 @@ class Profile extends React.Component {
 
         </button>
       </>);
-    console.log(user);
     return (
       <div data-testid="page-profile">
         <Header props={ this.props } />

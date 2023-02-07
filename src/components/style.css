@@ -69,3 +69,13 @@ header {
   height: 30px;
   width: 100px;
 }
+
+.formEdit {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.inputEdit {
+  margin-top: 10px;
+}

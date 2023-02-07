@@ -29,7 +29,6 @@ class Login extends React.Component {
   render() {
     const { name, btnDisabled, load } = this.state;
     const { history } = this.props;
-    console.log(history);
     return (
       <div data-testid="page-login">
         <form>

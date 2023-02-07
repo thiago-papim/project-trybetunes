@@ -1,61 +1,6 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import Loading from './Loading';
-// // import addSong from '../services/searchAlbumsAPI';
-
-// class MusicCard extends React.Component {
-//   state = {
-//     favorites: '',
-//   };
-
-//   // check = () => {
-//   //   const { favorites } = this.state;
-//   // }
-
-//   render() {
-//     const { url, name, trackId, music, handle, load } = this.props;
-//     // this.setState({ favorites });
-//     return (
-//       <div>
-//         { load ? <p>oi</p> : ''}
-//         <h5>{ name }</h5>
-//         <audio data-testid="audio-component" src={ url } controls>
-//           <track kind="captions" />
-//           O seu navegador não suporta o elemento
-//           {' '}
-//           {' '}
-//           <code>audio</code>
-//           .
-//         </audio>
-//         <form>
-//           <label htmlFor="favorita">
-//             Favorita
-//             <input
-//               id="favorita"
-//               type="checkbox"
-//               data-testid={ `checkbox-music-${trackId}` }
-//               onChange={ (event) => handle(event, music) }
-//             />
-//           </label>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
-
-// MusicCard.propTypes = {
-//   url: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   trackId: PropTypes.number.isRequired,
-//   music: PropTypes.string.isRequired,
-//   handle: PropTypes.func.isRequired,
-// };
-
-// export default MusicCard;
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
@@ -63,10 +8,16 @@ class MusicCard extends React.Component {
     load: false,
   };
 
-  addFavorite = async (music) => {
-    this.setState({ load: true });
-    await addSong(music);
-    this.setState({ load: false });
+  addFavorite = async (event, music) => {
+    // const { target: { checked } } = event;
+    const favorites = await getFavoriteSongs();
+    const { trackId } = music;
+    const verifica = favorites.some((element) => element.trackId === trackId);
+    if (verifica === false) {
+      this.setState({ load: true });
+      await addSong(music);
+      this.setState({ load: false });
+    }
   };
 
   render() {
@@ -91,7 +42,7 @@ class MusicCard extends React.Component {
               id="favorita"
               type="checkbox"
               data-testid={ `checkbox-music-${trackId}` }
-              onChange={ () => this.addFavorite(music) }
+              onChange={ (event) => this.addFavorite(event, music) }
             />
           </label>
         </form>
