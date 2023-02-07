@@ -24,7 +24,7 @@ class Header extends React.Component {
     const { name, load } = this.state;
     const { props: { history } } = this.props;
 
-    const nameLogin = <p data-testid="header-user-name">{ `Usuário: ${name}` }</p>;
+    const nameLogin = <p data-testid="header-user-name">{ `Bem-vindo ${name}` }</p>;
     return (
       <header data-testid="header-component">
         <div className="usuario">
