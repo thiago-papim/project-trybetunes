@@ -28,7 +28,10 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <div className="usuario">
-          <img src="https://seeklogo.com/images/S/sua-musica-logo-FB924E2959-seeklogo.com.png" alt="som" />
+          <img
+            src="https://seeklogo.com/images/S/sua-musica-logo-FB924E2959-seeklogo.com.png"
+            alt="som"
+          />
           { load ? <Loading /> : nameLogin }
         </div>
         <div className="links">

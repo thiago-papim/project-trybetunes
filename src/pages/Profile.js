@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
 import './ProfileEdit';
+import '../components/styleProfile.css';
 
 class Profile extends React.Component {
   state = {
@@ -22,22 +23,22 @@ class Profile extends React.Component {
     const { name, email, image, description } = user;
     console.log(user);
     const perfil = (
-      <>
-        <p>{name}</p>
-        <p>{email}</p>
-        <p>{description}</p>
+      <div className="divProfile">
         <img
           src={ image }
           alt={ `Foto de ${name}` }
           data-testid="profile-image"
         />
+        <p>{name}</p>
+        <p>{email}</p>
+        <p className="description">{description}</p>
         <button
           onClick={ () => history.push('/profile/edit') }
         >
           Editar perfil
 
         </button>
-      </>);
+      </div>);
     return (
       <div data-testid="page-profile">
         <Header props={ this.props } />

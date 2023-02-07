@@ -7,6 +7,9 @@ import '../components/styleLogin.css';
 class Login extends React.Component {
   state = {
     name: '',
+    email: '',
+    image: '',
+    description: '',
     btnDisabled: true,
     load: false,
   };
@@ -28,7 +31,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { name, btnDisabled, load } = this.state;
+    const { name, email, image, description, btnDisabled, load } = this.state;
     const { history } = this.props;
     return (
       <main>
@@ -36,7 +39,7 @@ class Login extends React.Component {
           <form className="form-profile">
             <h2>Realize seu cadastro</h2>
             <label htmlFor="name" className="placeholder">
-              Digite seu nome
+              Seu nome
               <input
                 className="input"
                 type="text"
@@ -47,6 +50,39 @@ class Login extends React.Component {
                 value={ name }
               />
             </label>
+            <label htmlFor="email" className="placeholder">
+              Digite seu Email
+              <input
+                className="input"
+                type="email"
+                id="email"
+                name="email"
+                onChange={ this.handleChange }
+                value={ email }
+              />
+            </label>
+            <label htmlFor="image" className="placeholder">
+              Link de Foto de perfil
+              <input
+                className="input"
+                type="text"
+                id="image"
+                name="image"
+                onChange={ this.handleChange }
+                value={ image }
+              />
+            </label>
+            <label htmlFor="description" className="placeholder">
+              Descrição
+              <textarea
+                className="input"
+                type="text"
+                id="description"
+                name="description"
+                onChange={ this.handleChange }
+                value={ description }
+              />
+            </label>
             <input
               className="btn-input"
               type="button"
@@ -55,7 +91,7 @@ class Login extends React.Component {
               disabled={ btnDisabled }
               onClick={ async () => {
                 this.setState({ load: true });
-                await createUser({ name });
+                await createUser({ name, email, image, description });
                 history.push('/search');
               } }
             />
