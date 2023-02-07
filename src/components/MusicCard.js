@@ -43,7 +43,6 @@ class MusicCard extends React.Component {
               type="checkbox"
               data-testid={ `checkbox-music-${trackId}` }
               onChange={ (event) => this.addFavorite(event, music) }
-
             />
           </label>
         </form>
