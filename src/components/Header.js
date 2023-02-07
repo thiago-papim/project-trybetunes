@@ -14,25 +14,35 @@ class Header extends React.Component {
   async componentDidMount() {
     const obj = await getUser();
     const { name } = obj;
+    const usuario = await getUser();
+    const { image } = usuario;
     this.setState({
       name,
       load: false,
+      image,
     });
   }
 
   render() {
-    const { name, load } = this.state;
+    const { name, load, image } = this.state;
     const { props: { history } } = this.props;
-
+    const imagem = image || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
     const nameLogin = <p data-testid="header-user-name">{ `Bem-vindo ${name}` }</p>;
+    const nameImage = (
+      <>
+        { nameLogin }
+        <img className="perfil" src={ imagem } alt="" />
+      </>
+    );
     return (
       <header data-testid="header-component">
         <div className="usuario">
           <img
+            className="logo"
             src="https://seeklogo.com/images/S/sua-musica-logo-FB924E2959-seeklogo.com.png"
             alt="som"
           />
-          { load ? <Loading /> : nameLogin }
+          { load ? <Loading /> : nameImage }
         </div>
         <div className="links">
           <button
