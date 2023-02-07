@@ -10,7 +10,7 @@ header {
   padding: 10px;
 }
 
-.logo {
+.usuario img {
   height: 50px;
   width: 100px;
 }
@@ -78,10 +78,4 @@ header {
 
 .inputEdit {
   margin-top: 10px;
-}
-
-.perfil {
-  border-radius: 100%;
-  height: 50px;
-  width: 60px;
 }
