@@ -33,8 +33,8 @@ class Profile extends React.Component {
     const perfil = (
       <div className="divProfile">
         <img
-          src={ image || 'https://api.ejcomp.com.br/members/1586969992913-perfilsemfoto.jpg' }
-          alt={ `Foto de ${name}` }
+          src={ image }
+          alt={ name }
           data-testid="profile-image"
         />
         <p>{name}</p>
@@ -51,6 +51,7 @@ class Profile extends React.Component {
       <div data-testid="page-profile">
         <Header props={ this.props } />
         { load ? <Loading /> : perfil }
+        <p>{name}</p>
       </div>
     );
   }
