@@ -54,6 +54,7 @@ class ProfileEdit extends React.Component {
     return (
       <div data-testid="page-profile-edit">
         <Header props={ this.props } />
+        <p>Editar perfil</p>
         { load ? <Loading /> : '' }
         <form className="formEdit">
           <label htmlFor="nome">
