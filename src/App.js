@@ -4,7 +4,7 @@ import Rotas from './pages/Rotas';
 class App extends React.Component {
   render() {
     return (
-      <Rotas />
+      <h1>Trybetunes</h1>
     );
   }
 }
