@@ -12,12 +12,12 @@ class Rotas extends React.Component {
   render() {
     return (
       <Switch>
-        <Route path="/search" component={ Search } />
-        <Route path="/album/:id" component={ Album } />
-        <Route path="/favorites" component={ Favorites } />
-        <Route path="/profile/edit" component={ ProfileEdit } />
-        <Route path="/profile" component={ Profile } />
-        <Route exact path="/" component={ Login } />
+        <Route path="/trybetunes/search" component={ Search } />
+        <Route path="/trybetunes/album/:id" component={ Album } />
+        <Route path="/trybetunes/favorites" component={ Favorites } />
+        <Route path="/trybetunes/profile/edit" component={ ProfileEdit } />
+        <Route path="/trybetunes/profile" component={ Profile } />
+        <Route exact path="/trybetunes" component={ Login } />
         <Route path="*" component={ NotFound } />
       </Switch>
     );
