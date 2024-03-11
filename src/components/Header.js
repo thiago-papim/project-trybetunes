@@ -39,7 +39,7 @@ class Header extends React.Component {
             id="teste"
             data-testid="link-to-search"
             value="Pesquisa"
-            onClick={ () => history.push('/search') }
+            onClick={ () => history.push('/trybetunes/search') }
             className="inputButton"
           >
             Pesquisa
@@ -49,14 +49,14 @@ class Header extends React.Component {
             type="button"
             data-testid="link-to-favorites"
             value="Musicas Favoritas"
-            onClick={ () => history.push('/favorites') }
+            onClick={ () => history.push('/trybetunes/favorites') }
             className="inputButton"
           />
           <input
             type="button"
             data-testid="link-to-profile"
             value="Perfil"
-            onClick={ () => history.push('/profile') }
+            onClick={ () => history.push('/trybetunes/profile') }
             className="inputButton"
           />
         </div>

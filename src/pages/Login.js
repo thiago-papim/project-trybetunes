@@ -92,7 +92,7 @@ class Login extends React.Component {
               onClick={ async () => {
                 this.setState({ load: true });
                 await createUser({ name, email, image, description });
-                history.push('/search');
+                history.push('/trybetunes/search');
               } }
             />
             <h1>{ load ? <Loading /> : '' }</h1>
